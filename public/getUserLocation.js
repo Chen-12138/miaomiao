@@ -1,4 +1,4 @@
-//百度地图获取城市名称的方法
+/* //百度地图获取城市名称的方法
 let getCurrentCityName = function () {
     return new Promise(function (resolve, reject) {
         let myCity = new BMap.LocalCity()
@@ -8,4 +8,4 @@ let getCurrentCityName = function () {
         })
     })
 }
-export default getCurrentCityName
+export default getCurrentCityName */

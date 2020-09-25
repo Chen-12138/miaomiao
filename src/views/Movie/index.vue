@@ -20,6 +20,7 @@
             
         </div>
         <TabBar />
+        <router-view name="detail"/>
     </div>
 </template>
 
@@ -28,7 +29,7 @@
 import Header from '@/components/Header'
 import TabBar from '@/components/TabBar'
 // import {messageBox} from '@/components/JS'
-import getCurrentCityName from '../../../public/getUserLocation'
+// import getCurrentCityName from '../../../public/getUserLocation'
 
 export default {
     name : 'Movie',
@@ -37,7 +38,7 @@ export default {
         TabBar
     },
     mounted(){
-        this.getCurrentCity()
+        // this.getCurrentCity()
         // console.log(this.getCurrentCity());
 
         /* messageBox({
@@ -55,21 +56,11 @@ export default {
     },
     methods : {
         //通过百度地图获取当前城市
-        getCurrentCity() {
+        /* getCurrentCity() {
             getCurrentCityName().then((city) => {
                console.log(city);  //顺利的话能在控制台打印出当前城市
-                /* messageBox({
-                    title : '定位1',
-                    content : city,
-                    cancel : '取消',
-                    ok : '切换定位',
-                    handleOk(){
-                        // console.log(222)
-                        window.localStorage.setItem('nowNm',city)
-                    }
-                }) */
             })
-        }
+        } */
     }
 }
 </script>
