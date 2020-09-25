@@ -4,7 +4,7 @@
         <div id="content">
 			<div class="movie_menu">
 				<router-link tag="div" to="/movie/city"  class="city_name">
-					<span>大连</span><i class="iconfont icon-lower-triangle"></i>
+					<span>{{$store.state.city.nm}}</span><i class="iconfont icon-lower-triangle"></i>
 				</router-link>
 				<div class="hot_swtich">
 					<router-link tag="div" to="/movie/nowPlaying" class="hot_item">正在热映</router-link>
@@ -27,12 +27,49 @@
 
 import Header from '@/components/Header'
 import TabBar from '@/components/TabBar'
+// import {messageBox} from '@/components/JS'
+import getCurrentCityName from '../../../public/getUserLocation'
 
 export default {
     name : 'Movie',
     components : {
         Header,
         TabBar
+    },
+    mounted(){
+        this.getCurrentCity()
+        // console.log(this.getCurrentCity());
+
+        /* messageBox({
+            title : '定位1',
+            content : '深圳',
+            cancel : '取消',
+            ok : '切换定位',
+            handleCancel(){
+                console.log(111)
+            },
+            handleOk(){
+                console.log(222)
+            }
+        }) */
+    },
+    methods : {
+        //通过百度地图获取当前城市
+        getCurrentCity() {
+            getCurrentCityName().then((city) => {
+               console.log(city);  //顺利的话能在控制台打印出当前城市
+                /* messageBox({
+                    title : '定位1',
+                    content : city,
+                    cancel : '取消',
+                    ok : '切换定位',
+                    handleOk(){
+                        // console.log(222)
+                        window.localStorage.setItem('nowNm',city)
+                    }
+                }) */
+            })
+        }
     }
 }
 </script>
