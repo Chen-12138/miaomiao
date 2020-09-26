@@ -78,7 +78,7 @@ export default {
             this.hotList = JSON.parse(hotList);
             this.isLoading = false;
         }else{
-            this.axios.get('http://localhost:8080/city.json').then((res)=>{
+            this.axios.get('/city.json').then((res)=>{
             // console.log(res)
             var data = res.data.letterMap
             if(data){
